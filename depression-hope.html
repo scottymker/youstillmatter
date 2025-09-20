@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Depression &amp; Hope Stories | YouStillMatter</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta
+      name="description"
+      content="Read anonymous stories of hope, learn practical coping strategies, and submit your experience to uplift others in the YouStillMatter community."
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <a class="brand" href="index.html">YouStillMatter</a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="anxiety-awareness.html">Anxiety Awareness</a></li>
+            <li><a href="depression-hope.html" aria-current="page">Depression & Hope Stories</a></li>
+            <li><a href="youth-mental-health.html">Youth Toolkit</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="page-hero">
+        <p class="breadcrumbs"><a href="index.html">Home</a> › Depression &amp; Hope Stories</p>
+        <h1>Stories of Hope Through Depression</h1>
+        <p>
+          Healing isn’t linear. By sharing honest reflections, we remind one another that hope can return in small, steady moments. Explore uplifting stories and submit your own experience anonymously to inspire others.
+        </p>
+        <div class="info-banner">
+          <strong>You are not alone.</strong>
+          <span>Reach the 988 Suicide &amp; Crisis Lifeline (US) or find local crisis numbers at <a href="https://www.opencounseling.com/suicide-hotlines" target="_blank" rel="noopener">Open Counseling</a>.</span>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <article class="content-card">
+          <h2>Spotlight stories from our community</h2>
+          <div class="grid-two">
+            <blockquote>
+              “There were months where getting out of bed felt impossible. A friend kept texting me, even when I didn’t respond. Those small reminders helped me reach out for therapy. Today I celebrate every little win.”
+              <footer>— Community Member, Age 26</footer>
+            </blockquote>
+            <blockquote>
+              “Depression told me I was alone. Volunteering at a local shelter gave me a purpose for a few hours each week. It didn’t cure everything, but it gave me connection. That was the first step back to hope.”
+              <footer>— Community Member, Age 41</footer>
+            </blockquote>
+          </div>
+          <p class="alert-box">
+            These stories are shared with permission and edited for privacy. They are not a substitute for professional guidance but can remind us that recovery takes many forms.
+          </p>
+        </article>
+
+        <article class="content-card">
+          <h2>Submit your anonymous story</h2>
+          <p>
+            Your journey matters. Complete the form below to offer encouragement to someone who might need it today. Submissions are reviewed before appearing on the site to maintain safety and compassion.
+          </p>
+          <form class="story-form" action="#" method="post">
+            <label for="story-theme">Which theme fits your story?</label>
+            <select id="story-theme" name="theme" required>
+              <option value="" disabled selected>Select a theme</option>
+              <option value="first-steps">Taking first steps toward help</option>
+              <option value="setbacks">Navigating setbacks</option>
+              <option value="support">Finding support in community</option>
+              <option value="self-kindness">Practicing self-kindness</option>
+            </select>
+
+            <label for="story-text">Share your experience</label>
+            <textarea id="story-text" name="story" placeholder="What has helped you keep going?" required></textarea>
+
+            <label for="story-tip">What advice or affirmation would you offer someone reading?</label>
+            <input id="story-tip" name="tip" type="text" placeholder="e.g., Remember to celebrate the tiniest victories." required />
+
+            <button class="btn btn-primary" type="submit">Submit my story</button>
+          </form>
+        </article>
+
+        <article class="content-card">
+          <h2>Practical steps to nurture hope</h2>
+          <div class="grid-two">
+            <div>
+              <h3>Routines that restore</h3>
+              <ul>
+                <li>Create a simple morning or evening ritual that signals care for yourself.</li>
+                <li>Schedule one “connection point” each week with someone you trust.</li>
+                <li>Track your mood gently to notice what environments help you feel safer.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Professional &amp; peer support</h3>
+              <ul>
+                <li>Ask your doctor about integrated care options or low-cost therapy programs.</li>
+                <li>Join a peer-led support group through NAMI, DBSA, or local community centers.</li>
+                <li>Explore virtual therapy platforms that offer sliding scale pricing.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; <span id="year"></span> YouStillMatter. Thank you for helping others feel less alone.</p>
+        <div class="footer-links">
+          <a href="anxiety-awareness.html">Anxiety Support</a>
+          <a href="depression-hope.html">Hope Stories</a>
+          <a href="youth-mental-health.html">Youth Toolkit</a>
+          <a href="mailto:hello@youstillmatter.org">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
+</html>

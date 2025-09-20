@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouStillMatter | Mental Health Support & Resources</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta
+      name="description"
+      content="YouStillMatter is a compassionate hub offering mental health resources, coping strategies, and real stories of resilience for youth and adults."
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <a class="brand" href="index.html">YouStillMatter</a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="anxiety-awareness.html">Anxiety Awareness</a></li>
+            <li><a href="depression-hope.html">Depression & Hope Stories</a></li>
+            <li><a href="youth-mental-health.html">Youth Toolkit</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="breadcrumbs">Because your story, your voice, and your future matter.</p>
+          <h1>Welcoming you to the YouStillMatter community</h1>
+          <p>
+            Our mission is to provide an uplifting space that honors your experiences and equips you with practical tools to thrive. Explore our tailored resources on anxiety, discover inspiring stories of hope through depression, and find school-ready supports designed for young people.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="anxiety-awareness.html">Explore anxiety support</a>
+            <a class="btn btn-secondary" href="depression-hope.html">Read hope stories</a>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <h2>How we stand beside you</h2>
+          <ul class="resource-list">
+            <li>
+              <span>Personalized paths</span>
+              Navigate resources curated for your stage of life and needs.
+            </li>
+            <li>
+              <span>Community stories</span>
+              Read and share experiences anonymously to connect with others.
+            </li>
+            <li>
+              <span>Trusted guidance</span>
+              Evidence-informed strategies from mental health educators and advocates.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Choose a supportive space crafted for you</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Anxiety Awareness Hub</h3>
+            <p>
+              Understand anxiety, practice grounding exercises, and discover crisis support lines and chat services that are ready to listen day or night.
+            </p>
+            <a class="link" href="anxiety-awareness.html">Visit the hub →</a>
+          </article>
+
+          <article class="card">
+            <h3>Depression &amp; Hope Stories</h3>
+            <p>
+              Read encouraging stories from peers, submit your own anonymously, and explore practical steps for reaching out when life feels heavy.
+            </p>
+            <a class="link" href="depression-hope.html">Find inspiration →</a>
+          </article>
+
+          <article class="card">
+            <h3>Youth Mental Health Toolkit</h3>
+            <p>
+              Give students and school communities a toolkit of lesson plans, check-in activities, and support hotlines to nurture well-being.
+            </p>
+            <a class="link" href="youth-mental-health.html">Equip your classroom →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-section">
+        <div class="content-card">
+          <h2>Immediate help is always within reach</h2>
+          <p>
+            If you or someone you know is in immediate danger, please call local emergency services right away. The resources shared here are informative and supportive, but they do not replace professional care.
+          </p>
+          <div class="info-banner">
+            <strong>24/7 Hotlines &amp; Chats</strong>
+            <span>United States: 988 Suicide &amp; Crisis Lifeline • Crisis Text Line: Text HOME to 741741</span>
+            <span>Canada: 988 Suicide Crisis Helpline • Kids Help Phone: Text CONNECT to 686868</span>
+            <span>UK &amp; Ireland: Samaritans 116 123 • Shout Crisis Text Line: Text SHOUT to 85258</span>
+          </div>
+        </div>
+        <div class="content-card">
+          <h2>How to use YouStillMatter</h2>
+          <ul>
+            <li>Start with the topic that speaks to your current experience.</li>
+            <li>Save or print the checklists and grounding tools you find useful.</li>
+            <li>Share the youth toolkit with educators, parents, and caregivers in your network.</li>
+            <li>Submit a story of hope or resilience to encourage someone else.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>&copy; <span id="year"></span> YouStillMatter. Built with compassion to remind you that you are never alone.</p>
+        <div class="footer-links">
+          <a href="anxiety-awareness.html">Anxiety Support</a>
+          <a href="depression-hope.html">Hope Stories</a>
+          <a href="youth-mental-health.html">Youth Toolkit</a>
+          <a href="mailto:hello@youstillmatter.org">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
+</html>
