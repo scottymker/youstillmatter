@@ -188,6 +188,14 @@ nav a:focus {
   color: var(--brand-primary);
 }
 
+.resource-cta {
+  margin-top: 1.5rem;
+}
+
+.resource-cta .btn {
+  font-size: 0.95rem;
+}
+
 .section-title {
   text-align: center;
   font-size: 1.9rem;
