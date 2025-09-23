@@ -1,0 +1,192 @@
+%PDF-1.4
+%
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 932 >>
+stream
+1 w
+50 680 16 16 re S
+50 640 16 16 re S
+50 600 16 16 re S
+50 560 16 16 re S
+50 520 16 16 re S
+50 480 16 16 re S
+50 440 16 16 re S
+50 400 16 16 re S
+50 360 16 16 re S
+50 320 16 16 re S
+BT /F1 28 Tf 72 712 Td (Mental health check in) Tj ET
+BT /F1 12 Tf 360 670 Td (Date) Tj ET
+360 640 180 28 re S
+BT /F1 12 Tf 72 640 Td (How are you feeling today?) Tj ET
+72 470 228 160 re S
+BT /F1 12 Tf 72 460 Td (How are you feeling today? \\(emoji or words\\)) Tj ET
+72 400 228 60 re S
+BT /F1 12 Tf 72 390 Td (How can you improve your mental health?) Tj ET
+72 280 228 110 re S
+BT /F1 12 Tf 320 640 Td (Three dominant emotions this week) Tj ET
+320 500 220 140 re S
+BT /F1 12 Tf 320 490 Td (What do you feel good about right now?) Tj ET
+320 420 220 70 re S
+BT /F1 12 Tf 320 410 Td (Things that trigger negative emotions) Tj ET
+320 330 220 80 re S
+BT /F1 12 Tf 320 320 Td (My ranking of my mental health this week \\(1-5\\)) Tj ET
+320 270 220 50 re S
+endstream
+endobj
+3 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [360 640 540 668]
+/FT /Tx
+/T (Date)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 0
+/V ()
+>>
+endobj
+4 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [72 470 300 630]
+/FT /Tx
+/T (FeelingSummary)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 4096
+/V ()
+>>
+endobj
+5 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [72 400 300 458]
+/FT /Tx
+/T (FeelingEmoji)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 0
+/V ()
+>>
+endobj
+6 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [72 280 300 388]
+/FT /Tx
+/T (ImproveMentalHealth)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 4096
+/V ()
+>>
+endobj
+7 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [320 500 540 628]
+/FT /Tx
+/T (DominantEmotions)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 4096
+/V ()
+>>
+endobj
+8 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [320 420 540 488]
+/FT /Tx
+/T (FeelGood)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 4096
+/V ()
+>>
+endobj
+9 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [320 330 540 408]
+/FT /Tx
+/T (Triggers)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 4096
+/V ()
+>>
+endobj
+10 0 obj
+<<
+/Type /Annot
+/Subtype /Widget
+/Rect [320 270 540 318]
+/FT /Tx
+/T (WeeklyRanking)
+/F 4
+/P 11 0 R
+/DA (/F1 11 Tf 0 g)
+/MK <<>>
+/Ff 0
+/V ()
+>>
+endobj
+11 0 obj
+<< /Type /Page /Parent 12 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R /Annots [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R] >>
+endobj
+12 0 obj
+<< /Type /Pages /Kids [11 0 R] /Count 1 >>
+endobj
+13 0 obj
+<< /Fields [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R] /DA (/F1 11 Tf 0 g) /NeedAppearances true /DR << /Font << /F1 1 0 R >> >> >>
+endobj
+14 0 obj
+<< /Type /Catalog /Pages 12 0 R /AcroForm 13 0 R >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000001068 00000 n 
+0000001217 00000 n 
+0000001378 00000 n 
+0000001534 00000 n 
+0000001700 00000 n 
+0000001864 00000 n 
+0000002020 00000 n 
+0000002176 00000 n 
+0000002335 00000 n 
+0000002522 00000 n 
+0000002581 00000 n 
+0000002736 00000 n 
+trailer
+<< /Size 15 /Root 14 0 R >>
+startxref
+2804
+%%EOF
