@@ -1,4 +1,4 @@
-cat > generate_mood_tracker_pdf.py <<'PY'
+# generate_mood_tracker_pdf.py — fillable, styled mood check-in PDF
 import os
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
@@ -10,7 +10,10 @@ from reportlab.pdfbase.acroform import AcroForm
 
 OUT_PATH = "assets/mood-tracker-checkin.pdf"
 
-# Optional script title font (drop a TTF into assets/fonts/)
+# PDF field flags
+FF_MULTILINE = 1 << 12   # 4096
+
+# Optional script title font (drop one of these in assets/fonts/)
 SCRIPT_FONT_PATHS = [
     "assets/fonts/GreatVibes-Regular.ttf",
     "assets/fonts/Pacifico-Regular.ttf",
@@ -28,10 +31,10 @@ M = 0.75 * inch
 G = 0.30 * inch
 COL_W = (PAGE_W - 2*M - G) / 2.0
 
-INK   = colors.HexColor("#222222")
-SUBTLE= colors.HexColor("#F5F7FA")
-RULE  = colors.HexColor("#E5E7EB")
-ACCENT= colors.HexColor("#0EA5E9")
+INK    = colors.HexColor("#222222")
+SUBTLE = colors.HexColor("#F5F7FA")
+RULE   = colors.HexColor("#E5E7EB")
+ACCENT = colors.HexColor("#0EA5E9")
 
 def draw_title(c):
     title = "Mental health check in"
@@ -85,61 +88,84 @@ def make_pdf(path=OUT_PATH):
     # LEFT column
     left_x = M; y = top_y - 18
     label(c, "Date", left_x, y); rule(c, left_x+35, y-2, left_x + COL_W - 6); y -= 26
+
     label(c, "How are you feeling today?", left_x, y); y -= 6
     h1 = 1.6*inch; textbox_bg(c, left_x, y-h1, COL_W, h1)
-    form.textfield(name="feel_today", x=left_x+8, y=y-h1+8,
-                   width=COL_W-16, height=h1-16, borderWidth=0,
-                   fillColor=None, textColor=INK, forceBorder=False, multiline=True)
+    form.textfield(
+        name="feel_today",
+        x=left_x+8, y=y-h1+8, width=COL_W-16, height=h1-16,
+        borderWidth=0, fillColor=None, textColor=INK, forceBorder=False,
+        fieldFlags=FF_MULTILINE
+    )
     y -= (h1 + 20)
+
     label(c, "How are you feeling today? (quick)", left_x, y); y -= 14
     rb_y = y; step = 24
     for i in range(5):
-        form.radio(name="mood_quick", value=str(i+1), x=left_x+i*step, y=rb_y,
-                   buttonStyle="circle", selected=False, borderWidth=1,
-                   borderColor=INK, fillColor=colors.white, textColor=INK, size=12)
+        form.radio(
+            name="mood_quick", value=str(i+1),
+            x=left_x + i*step, y=rb_y,
+            buttonStyle="circle", selected=False,
+            borderWidth=1, borderColor=INK, fillColor=colors.white, textColor=INK, size=12
+        )
         c.setFont("Helvetica", 8); c.setFillColor(INK)
-        c.drawCentredString(left_x+i*step+6, rb_y-12, str(i+1))
+        c.drawCentredString(left_x + i*step + 6, rb_y - 12, str(i+1))
     y -= 28
+
     label(c, "How can you improve your mental health?", left_x, y); y -= 6
     h2 = 2.0*inch; textbox_bg(c, left_x, y-h2, COL_W, h2)
-    form.textfield(name="improve", x=left_x+8, y=y-h2+8,
-                   width=COL_W-16, height=h2-16, borderWidth=0,
-                   fillColor=None, textColor=INK, forceBorder=False, multiline=True)
+    form.textfield(
+        name="improve",
+        x=left_x+8, y=y-h2+8, width=COL_W-16, height=h2-16,
+        borderWidth=0, fillColor=None, textColor=INK, forceBorder=False,
+        fieldFlags=FF_MULTILINE
+    )
 
     # RIGHT column
     right_x = left_x + COL_W + G; y_r = top_y - 18
+
     label(c, "What have been your three dominant emotions this week?", right_x, y_r)
     y_r -= 10; line_h = 18
     for i in range(3):
         rule(c, right_x, y_r-4, right_x+COL_W)
-        form.textfield(name=f"dominant_{i+1}", x=right_x, y=y_r-14,
-                       width=COL_W, height=16, borderWidth=0,
-                       fillColor=None, textColor=INK, forceBorder=False)
+        form.textfield(
+            name=f"dominant_{i+1}", x=right_x, y=y_r-14, width=COL_W, height=16,
+            borderWidth=0, fillColor=None, textColor=INK, forceBorder=False
+        )
         y_r -= line_h
     y_r -= 10
+
     label(c, "What do you feel good about right now?", right_x, y_r); y_r -= 6
     h3 = 1.4*inch; textbox_bg(c, right_x, y_r-h3, COL_W, h3)
-    form.textfield(name="feel_good", x=right_x+8, y=y_r-h3+8,
-                   width=COL_W-16, height=h3-16, borderWidth=0,
-                   fillColor=None, textColor=INK, forceBorder=False, multiline=True)
+    form.textfield(
+        name="feel_good",
+        x=right_x+8, y=y_r-h3+8, width=COL_W-16, height=h3-16,
+        borderWidth=0, fillColor=None, textColor=INK, forceBorder=False,
+        fieldFlags=FF_MULTILINE
+    )
     y_r -= (h3 + 18)
+
     label(c, "Things that trigger negative emotions", right_x, y_r); y_r -= 10
     for i in range(4):
         rule(c, right_x, y_r-4, right_x+COL_W)
-        form.textfield(name=f"trigger_{i+1}", x=right_x, y=y_r-14,
-                       width=COL_W, height=16, borderWidth=0,
-                       fillColor=None, textColor=INK, forceBorder=False)
+        form.textfield(
+            name=f"trigger_{i+1}", x=right_x, y=y_r-14, width=COL_W, height=16,
+            borderWidth=0, fillColor=None, textColor=INK, forceBorder=False
+        )
         y_r -= line_h
     y_r -= 8
+
     label(c, "My ranking of my mental health this week", right_x, y_r); y_r -= 16
     star_cy = y_r
     for i in range(5):
         cx = right_x + 12 + i*28
         draw_star(c, cx, star_cy, size=10, fill=False)
-        form.radio(name="rating_star", value=str(i+1), x=cx-6, y=star_cy-6,
-                   buttonStyle="circle", selected=False, borderWidth=0.5,
-                   borderColor=colors.transparent, fillColor=colors.transparent,
-                   textColor=INK, size=12)
+        form.radio(
+            name="rating_star", value=str(i+1),
+            x=cx-6, y=star_cy-6, buttonStyle="circle", selected=False,
+            borderWidth=0.5, borderColor=colors.transparent,
+            fillColor=colors.transparent, textColor=INK, size=12
+        )
 
     c.setViewerPreference("HideMenubar", False)
     c.showPage(); c.save()
@@ -147,4 +173,3 @@ def make_pdf(path=OUT_PATH):
 
 if __name__ == "__main__":
     make_pdf()
-PY
