@@ -4,6 +4,9 @@ import RegisterSW from "@/components/RegisterSW";
 export const metadata = {
   title: "YouStillMatter",
   description: "Calm tools, crisis contacts, and self-care — privacy-first.",
+  manifest: "/manifest.json",
+  themeColor: "#2563EB",
+  icons: [{ rel: "icon", url: "/icons/icon-192.png" }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
