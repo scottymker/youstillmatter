@@ -50,3 +50,14 @@ out/
 # App subfolder
 app/.next/
 app/node_modules/
+# Root/node + Next
+node_modules/
+.next/
+out/
+*.log
+.env*
+.DS_Store
+
+# App subfolder
+app/node_modules/
+app/.next/
