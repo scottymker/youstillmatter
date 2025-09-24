@@ -1,7 +1,0 @@
-[build]
-  base    = "app"          # your Next app lives here
-  publish = ".next"        # publish path is relative to base
-  command = "npm run build"
-
-[build.environment]
-  NODE_VERSION = "20"
