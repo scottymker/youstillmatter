@@ -15,9 +15,7 @@ export default function Crisis() {
           </a>
         ))}
       </div>
-      <div className="text-xs text-mute mt-6">
-        This app is not monitored and does not store personal identifiers. In emergencies, use phone services directly.
-      </div>
+      <p className="text-xs text-mute mt-6">This app isn’t monitored. In emergencies, use phone services directly.</p>
     </section>
   );
 }

@@ -27,7 +27,7 @@ export default function Grounding() {
   const prev = () => setI((v) => Math.max(v - 1, 0));
 
   return (
-    <section className="max-w-xl mx-auto">
+    <section className="max-w-xl">
       <h1 className="text-2xl font-semibold mb-2">5-4-3-2-1 Grounding</h1>
       <p className="opacity-80 mb-4">Notice {step.count} things you can <b>{step.label.toLowerCase()}</b>.</p>
 
