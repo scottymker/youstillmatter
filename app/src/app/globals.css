@@ -5,4 +5,7 @@
 :root { color-scheme: light dark; }
 html, body { height: 100%; }
 body { @apply bg-white text-ink antialiased; }
-a, button { @apply focus:outline-none focus:ring-2 focus:ring-brand/50; }
+a, button { @apply focus:outline-none focus:ring-2 focus:ring-brand-400; }
+.card { @apply block border rounded-xl2 p-5 shadow-soft hover:shadow transition; }
+.card h2 { @apply text-lg font-semibold; }
+.card p { @apply text-sm text-mute; }
