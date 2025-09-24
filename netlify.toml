@@ -6,3 +6,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Optional: nice URL so /app opens the installer page
+[[redirects]]
+  from = "/app"
+  to   = "/app.html"
+  status = 200
