@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Install YouStillMatter | Step-by-step Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Step-by-step instructions for installing the YouStillMatter progressive web app on your phone, tablet, or computer." />
+  <link rel="icon" type="image/svg+xml" href="assets/YouStillMatter.svg" />
+  <link rel="alternate icon" href="assets/YouStillMatter.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <style>
+    :root{
+      --brand:#0EA5E9;
+      --brand-2:#7DD3FC;
+      --ink:#0b1220;
+      --ink-soft:#344055;
+      --paper:#F8FAFC;
+      --surface:#ffffff;
+      --muted:#6B7280;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --paper:#0b1220;
+        --surface:#101827;
+        --ink:#F3F4F6;
+        --ink-soft:#D1D5DB;
+        --muted:#9CA3AF;
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(14,165,233,.10), transparent 60%),
+        radial-gradient(1100px 600px at 100% 0%, rgba(125,211,252,.12), transparent 60%),
+        var(--paper);
+    }
+    header{background:transparent}
+    .navbar{
+      max-width:1100px; margin:0 auto; padding:16px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; font-weight:700}
+    .brand-mark{width:36px; height:36px; border-radius:10px; background:#fff; box-shadow:0 4px 26px rgba(14,165,233,.25)}
+    nav ul{display:flex; gap:16px; list-style:none; padding:0; margin:0}
+    nav a{color:var(--ink); text-decoration:none; font-weight:600; opacity:.9}
+    nav a[aria-current="page"]{color:var(--brand)}
+
+    .hero{
+      max-width:1100px; margin:20px auto 32px; padding:24px 20px;
+      display:grid; gap:24px;
+    }
+    h1{margin:12px 0 8px; font-size:clamp(28px,5vw,44px); line-height:1.07}
+    .lede{margin:10px 0 16px; color:var(--ink-soft)}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid rgba(14,165,233,.35); background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.4)); border-radius:999px; font-size:13px; color:var(--ink-soft)}
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 18px; border-radius:14px; border:1px solid #d1d5db; background:var(--surface); text-decoration:none; color:var(--ink); font-weight:700; transition:transform .02s ease, background .15s ease, box-shadow .2s ease; box-shadow:0 1px 0 rgba(0,0,0,.06),0 10px 30px rgba(14,165,233,.06)}
+    .btn:hover{background:#ffffffd9}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:linear-gradient(180deg,var(--brand),#0284C7); color:#fff; border-color:transparent}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 20px 60px}
+
+    .card{border:1px solid rgba(14,165,233,.25); background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.45)); border-radius:24px; padding:24px; box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 20px 60px rgba(14,165,233,.1)}
+    .card h2{margin-top:0}
+    .device-note{font-size:15px; color:var(--muted); margin:0 0 18px}
+    .select-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:18px 0}
+    select{font:16px/1.4 inherit; padding:10px 12px; border-radius:12px; border:1px solid rgba(14,165,233,.4); background:var(--surface); min-width:240px}
+    .steps{margin:18px 0 0; padding-left:22px; color:var(--ink-soft)}
+    .steps li{margin:0 0 10px}
+    .tip{margin-top:22px; padding:16px 18px; border-radius:16px; border:1px dashed rgba(14,165,233,.45); background:linear-gradient(180deg, rgba(125,211,252,.18), rgba(125,211,252,.08)); color:#053b52}
+    .faq{margin-top:32px; display:grid; gap:16px}
+    .faq article{border:1px solid rgba(0,0,0,.05); background:var(--surface); border-radius:18px; padding:18px}
+    .faq h3{margin:0 0 6px}
+    footer{padding:24px 20px; border-top:1px solid rgba(0,0,0,.06); color:var(--muted); text-align:center}
+    .links{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:10px}
+
+    @media (prefers-reduced-motion: no-preference){
+      .card{animation: rise 0.6s ease-out}
+      @keyframes rise{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/YouStillMatter.svg" alt="YouStillMatter logo" />
+        <span>YouStillMatter</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="anxiety-awareness.html">Anxiety Awareness</a></li>
+          <li><a href="depression-hope.html">Depression &amp; Hope Stories</a></li>
+          <li><a href="youth-mental-health.html">Youth Toolkit</a></li>
+          <li><a href="app.html">Mobile App</a></li>
+          <li><a href="instructions.html" aria-current="page">Install Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="badge">Installable web app</div>
+      <h1>Install YouStillMatter in seconds</h1>
+      <p class="lede">
+        Follow the quick steps below to add the YouStillMatter app to your home screen or desktop. We tailor the guide based on your device so the instructions feel familiar.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://app.youstillmatter.org" rel="noopener">Open the App</a>
+        <a class="btn" href="app.html">Back to app overview</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="card" aria-live="polite">
+      <h2 id="deviceTitle">Install on your device</h2>
+      <p id="deviceDetected" class="device-note">Detecting your device…</p>
+      <div class="select-row">
+        <label for="deviceSelect">Show instructions for:</label>
+        <select id="deviceSelect" aria-describedby="deviceDetected">
+          <option value="ios">iPhone or iPad (Safari)</option>
+          <option value="android">Android phone or tablet (Chrome)</option>
+          <option value="windows">Windows laptop or PC (Chrome / Edge)</option>
+          <option value="mac">Mac desktop or laptop</option>
+          <option value="chromebook">Chromebook</option>
+          <option value="other">Another device or browser</option>
+        </select>
+      </div>
+      <p id="deviceSummary"></p>
+      <ol id="stepList" class="steps"></ol>
+      <div class="tip" id="deviceTip"></div>
+    </section>
+
+    <section class="faq" aria-labelledby="faqTitle">
+      <h2 id="faqTitle" style="margin:32px 0 8px">Frequently asked questions</h2>
+      <article>
+        <h3>Do I need to keep the browser open for the app to work?</h3>
+        <p>No. Once YouStillMatter is installed it lives alongside your other apps. You can launch it offline and your saved check-ins, journal entries, and Calm Toolkit items stay on your device.</p>
+      </article>
+      <article>
+        <h3>Will installing the app cost anything?</h3>
+        <p>Never. The YouStillMatter progressive web app is free and respects your privacy—there are no hidden fees, ads, or data selling.</p>
+      </article>
+      <article>
+        <h3>How do I uninstall the app?</h3>
+        <p>You can remove it the same way you remove any other app. On mobile, press and hold the icon and choose Remove. On desktop, right click the app icon or open your browser's installed apps menu and choose Uninstall.</p>
+      </article>
+      <article>
+        <h3>The install option is missing—what can I try?</h3>
+        <p>Make sure you are using the latest version of your browser and that you visited <strong>https://app.youstillmatter.org</strong>. If the option still does not appear, you can add the page as a bookmark or pin the tab for quick access.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> YouStillMatter — Built with compassion to remind you that you are never alone.</div>
+    <div class="links">
+      <a href="anxiety-awareness.html">Anxiety Support</a>
+      <a href="depression-hope.html">Hope Stories</a>
+      <a href="youth-mental-health.html">Youth Toolkit</a>
+      <a href="app.html">Mobile App</a>
+      <a href="instructions.html" aria-current="page">Install Guide</a>
+      <a href="mailto:hello@youstillmatter.org">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const instructions = {
+      ios: {
+        title: 'Install on iPhone or iPad',
+        summary: 'Use Safari’s share button to add YouStillMatter to your home screen.',
+        steps: [
+          'Open https://app.youstillmatter.org in Safari.',
+          'Tap the <strong>Share</strong> button (the square with an arrow).',
+          'Scroll down and choose <strong>Add to Home Screen</strong>.',
+          'Rename it if you like, then tap <strong>Add</strong>. The app icon appears on your Home Screen and App Library.'
+        ],
+        tip: 'Having trouble finding the Share button? It sits at the bottom of the screen on iPhone and at the top-right on iPad.'
+      },
+      android: {
+        title: 'Install on Android phone or tablet',
+        summary: 'Use Chrome’s menu to install the app in a couple of taps.',
+        steps: [
+          'Open https://app.youstillmatter.org in Google Chrome.',
+          'Tap the three-dot <strong>More</strong> menu in the top-right corner.',
+          'Choose <strong>Install app</strong> (or <strong>Add to Home screen</strong> on some devices).',
+          'Confirm by tapping <strong>Install</strong>. You can now launch the app from your home screen or app drawer.'
+        ],
+        tip: 'If you prefer Firefox or Samsung Internet, look for an “Install” or “Add to Home screen” option in the browser menu.'
+      },
+      windows: {
+        title: 'Install on Windows (Chrome or Edge)',
+        summary: 'Install the app so it opens in its own window without browser tabs.',
+        steps: [
+          'Open https://app.youstillmatter.org in Microsoft Edge or Google Chrome.',
+          'Look for the <strong>Install</strong> icon in the address bar (a laptop with a down arrow). You can also open the browser menu and choose <strong>Apps &gt; Install this site as an app</strong>.',
+          'Click <strong>Install</strong> and confirm.',
+          'You can find YouStillMatter in your Start menu and pin it to the taskbar like any other app.'
+        ],
+        tip: 'If you later want to uninstall, open Edge/Chrome, go to Apps, right click YouStillMatter, and choose Remove.'
+      },
+      mac: {
+        title: 'Install on Mac desktop or laptop',
+        summary: 'Install with Safari, Chrome, or Edge so the app lives in your dock.',
+        steps: [
+          'Open https://app.youstillmatter.org in your preferred browser.',
+          'In Safari: click the <strong>Share</strong> button and choose <strong>Add to Dock</strong>. In Chrome or Edge: click the <strong>Install</strong> icon in the address bar or go to <strong>File &gt; Install YouStillMatter</strong>.',
+          'Confirm the install prompt.',
+          'Launch the app from your Dock, Applications folder, or Spotlight search.'
+        ],
+        tip: 'On older Safari versions the option is under the Share menu as “Add to Home Screen.” The app will open in its own minimal window.'
+      },
+      chromebook: {
+        title: 'Install on Chromebook',
+        summary: 'Chrome OS treats YouStillMatter like a native app with offline support.',
+        steps: [
+          'Open https://app.youstillmatter.org in Chrome.',
+          'Click the <strong>Install</strong> icon at the right of the address bar. If you do not see it, open the ⋮ menu and choose <strong>Install YouStillMatter</strong>.',
+          'Select <strong>Install</strong> when prompted.',
+          'YouStillMatter will appear in your Launcher. Pin it to the shelf for faster access.'
+        ],
+        tip: 'If you are using a managed school Chromebook, your administrator may need to allow installs from the web.'
+      },
+      other: {
+        title: 'Save the app on another device or browser',
+        summary: 'Most modern browsers offer an option to install or bookmark the app.',
+        steps: [
+          'Visit https://app.youstillmatter.org in your browser.',
+          'Look for options such as <strong>Install app</strong>, <strong>Add to Home screen</strong>, <strong>Add to Dock</strong>, or <strong>Save as shortcut</strong>.',
+          'Follow the prompts to confirm. If installation is not available, add the page as a bookmark for quick access.',
+          'After adding the shortcut, open it like any other app or bookmark to launch YouStillMatter.'
+        ],
+        tip: 'Still stuck? Email <a href="mailto:hello@youstillmatter.org">hello@youstillmatter.org</a> and we’ll walk you through it.'
+      }
+    };
+
+    const deviceTitle = document.getElementById('deviceTitle');
+    const deviceSummary = document.getElementById('deviceSummary');
+    const deviceTip = document.getElementById('deviceTip');
+    const stepList = document.getElementById('stepList');
+    const deviceDetected = document.getElementById('deviceDetected');
+    const deviceSelect = document.getElementById('deviceSelect');
+
+    const detectionLabels = {
+      ios: 'an iPhone or iPad',
+      android: 'an Android device',
+      windows: 'a Windows computer',
+      mac: 'a Mac',
+      chromebook: 'a Chromebook',
+      other: 'your device'
+    };
+
+    function detectDevice(){
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const platform = navigator.platform || '';
+      if(/iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
+        return 'ios';
+      }
+      if(/Android/.test(ua)){
+        return 'android';
+      }
+      if(/CrOS/.test(ua)){
+        return 'chromebook';
+      }
+      if(/Win/.test(platform) || /Windows/.test(ua)){
+        return 'windows';
+      }
+      if(/Mac/.test(platform) || /Macintosh/.test(ua)){
+        return 'mac';
+      }
+      return 'other';
+    }
+
+    function updateDeviceMessage(key, userSelected, initialKey){
+      const label = detectionLabels[key] || detectionLabels.other;
+      if(!userSelected && initialKey && key === initialKey){
+        deviceDetected.innerHTML = `We think you are on <strong>${label}</strong>. Use the menu if that’s not right.`;
+      } else {
+        deviceDetected.innerHTML = `Showing instructions for <strong>${label}</strong>.`;
+      }
+    }
+
+    function renderInstructions(key, { userSelected = false, initialKey = null } = {}){
+      const data = instructions[key] || instructions.other;
+      deviceTitle.textContent = data.title;
+      deviceSummary.innerHTML = data.summary;
+      deviceTip.innerHTML = data.tip;
+      stepList.innerHTML = data.steps.map(step => `<li>${step}</li>`).join('');
+      updateDeviceMessage(key, userSelected, initialKey);
+    }
+
+    const initial = detectDevice();
+    if(instructions[initial]){
+      deviceSelect.value = initial;
+    } else {
+      deviceDetected.textContent = 'Select your device to see the steps.';
+    }
+    renderInstructions(deviceSelect.value, { initialKey: initial });
+
+    deviceSelect.addEventListener('change', (event) => {
+      renderInstructions(event.target.value, { userSelected: true, initialKey: initial });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
