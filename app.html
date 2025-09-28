@@ -1,340 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>YouStillMatter App | Calm Tools & Crisis Resources</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="YouStillMatter is a private, offline-friendly set of calming tools, grounding exercises, and a crisis card—ready the moment you need it." />
-
-  <!-- Favicons / icons (swap to your hosted assets if you prefer) -->
-  <link rel="icon" type="image/svg+xml" href="assets/YouStillMatter.svg" />
-  <link rel="alternate icon" href="assets/YouStillMatter.png" />
-  <meta name="theme-color" content="#0b1220" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="YouStillMatter App" />
-  <meta property="og:description" content="Private, offline-friendly calming tools and a crisis card." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://app.youstillmatter.org" />
-  <!-- <meta property="og:image" content="https://yourdomain.com/og-image.png" /> -->
-
+  <title>YouStillMatter App – Calm tools, crisis card, and gentle support</title>
+  <meta name="description" content="The YouStillMatter (YSM) app offers calming tools, grounding, breathing, a private journal, and a crisis card — simple, offline‑friendly, and free." />
+  <link rel="icon" type="image/png" href="/assets/YSM_PurpleTxt_logo.png" />
   <style>
-    :root{
-      --brand:#0EA5E9;
-      --brand-2:#7DD3FC;
-      --ink:#0b1220;
-      --ink-soft:#344055;
-      --paper:#F8FAFC;
-      --surface:#ffffff;
-      --muted:#6B7280;
-      --ring: var(--brand);
-      color-scheme: light;
+    :root {
+      --ysmpurple: #623e8e;
+      --black: #000000;
+      --white: #ffffff;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --paper:#0b1220;
-        --surface:#101827;
-        --ink:#F3F4F6;
-        --ink-soft:#D1D5DB;
-        --muted:#9CA3AF;
-      }
-    }
-    *{box-sizing:border-box}
+    /* ---- Base ---- */
     html,body{height:100%}
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(14,165,233,.10), transparent 60%),
-        radial-gradient(1100px 600px at 100% 0%, rgba(125,211,252,.12), transparent 60%),
-        var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--black);
+      background: var(--white);
+      line-height:1.6;
     }
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
 
-    /* Header / Nav */
-    .navbar{
-      max-width:1100px; margin:0 auto; padding:16px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; font-weight:700}
-    .brand-mark{width:36px; height:36px; border-radius:10px; background:#fff; box-shadow:0 4px 26px rgba(14,165,233,.25)}
-    nav ul{display:flex; gap:16px; list-style:none; padding:0; margin:0}
-    nav a{color:var(--ink); text-decoration:none; font-weight:600; opacity:.9}
-    nav a[aria-current="page"]{color:var(--brand)}
+    /* ---- Layout helpers ---- */
+    .container{width:min(1100px, 92vw); margin-inline:auto}
+    .grid{display:grid; gap:28px}
+    .section{padding:72px 0}
 
-    /* Hero */
-    .hero{
-      max-width:1100px; margin:10px auto 32px; padding:24px 20px;
-      display:grid; grid-template-columns:1fr; gap:24px; align-items:center;
+    /* ---- Top Nav ---- */
+    .nav{
+      position: sticky; top:0; z-index: 40;
+      background: rgba(98,62,142,.96); backdrop-filter: saturate(140%) blur(6px);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,.12);
     }
-    @media (min-width:960px){
-      .hero{grid-template-columns:1.2fr .8fr}
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border:1px solid rgba(14,165,233,.35);
-      background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.4));
-      border-radius:999px; font-size:13px; color:var(--ink-soft)
-    }
-    h1{margin:12px 0 8px; font-size:clamp(28px,5vw,44px); line-height:1.07}
-    .lede{margin:10px 0 18px; color:var(--ink-soft)}
-    .cta{display:flex; flex-wrap:wrap; gap:12px; margin:16px 0 10px}
+    .nav .row{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .brand img{width:36px; height:36px}
+    .nav .links{display:flex; gap:18px; align-items:center}
+    .nav .links a{opacity:.9}
+    .nav .links a:hover{opacity:1}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 18px; border-radius:14px; border:1px solid #d1d5db; background:var(--surface);
-      text-decoration:none; color:var(--ink); font-weight:700;
-      transition:transform .02s ease, background .15s ease, box-shadow .2s ease;
-      box-shadow:0 1px 0 rgba(0,0,0,.06),0 10px 30px rgba(14,165,233,.06);
+      border:2px solid var(--white); color:var(--white); background:transparent;
+      padding:12px 18px; border-radius:999px; font-weight:700; letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+      will-change: transform;
     }
-    .btn:hover{background:#ffffffd9}
-    .btn:active{transform:translateY(1px)}
-    .btn-primary{background:linear-gradient(180deg,var(--brand),#0284C7); color:#fff; border-color:transparent}
-    .btn-outline{border-color:rgba(14,165,233,.4)}
-    .install-note{font-size:13px; color:var(--muted); margin-top:4px}
+    .btn:hover{background:var(--white); color:var(--ysmpurple); transform: translateY(-1px)}
 
-    /* Device card */
-    .device{
-      border:1px solid rgba(14,165,233,.25);
-      background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.45));
-      border-radius:24px; padding:18px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 20px 60px rgba(14,165,233,.15);
+    /* ---- Hero ---- */
+    .hero{
+      position:relative; overflow:hidden;
+      background: linear-gradient(135deg, var(--ysmpurple) 0%, #4d2f71 100%);
+      color:var(--white);
+      padding: clamp(64px, 10vw, 120px) 0 64px;
+      isolation:isolate;
     }
-    .screen{
-      aspect-ratio:9/16; border-radius:20px; background:radial-gradient(180px 220px at 50% 0%, rgba(14,165,233,.2), rgba(2,132,199,.15) 45%, rgba(2,132,199,.12) 70%, rgba(2,132,199,.10) 100%), #0b1220;
-      border:1px solid rgba(255,255,255,.12); overflow:hidden; display:grid; place-items:center; color:#e8f7ff;
-      font-weight:700; letter-spacing:.2px;
-    }
-    .screen .pill{margin-top:-10%; display:inline-block; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.06)}
-    .qrWrap{margin-top:12px; display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:center}
-    .qrWrap img{width:110px; height:110px; background:#fff; border-radius:12px}
-    .qrWrap .small{font-size:12px; color:var(--muted)}
-
-    /* Sections */
-    .wrap{max-width:1100px; margin:0 auto; padding:0 20px 40px}
-    .section{margin:28px 0}
-    .card{border:1px solid rgba(0,0,0,.06); background:var(--surface); border-radius:20px; padding:20px; box-shadow:0 8px 28px rgba(2,132,199,.06)}
-    .grid2{display:grid; gap:16px; grid-template-columns:1fr}
-    @media (min-width:900px){ .grid2{grid-template-columns:1fr 1fr} }
-    .card h2{margin:6px 0 10px; font-size:22px}
-    .card h3{margin:8px 0; font-size:16px}
-    .card ul{margin:8px 0 0; padding-left:18px; color:var(--ink-soft)}
-    .band{
-      margin:28px 0; padding:16px; border:1px dashed rgba(14,165,233,.45);
-      border-radius:16px; background:linear-gradient(180deg, rgba(125,211,252,.18), rgba(125,211,252,.08));
-      color:#053b52;
+    .hero .content{display:grid; grid-template-columns: 1.1fr .9fr; gap:42px; align-items:center}
+    .eyebrow{display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.25); border-radius:999px; font-weight:700; font-size:.85rem; opacity:.9}
+    .title{font-size: clamp(2rem, 4.6vw, 3.6rem); line-height:1.05; margin:14px 0 12px; font-weight:900}
+    .subtitle{font-size: clamp(1.05rem, 1.6vw, 1.2rem); opacity:.95; max-width: 52ch}
+    .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px}
+    .btn-dark{background:var(--black); color:var(--white); border-color:var(--black)}
+    .btn-dark:hover{background:var(--white); color:var(--ysmpurple); border-color:var(--white)}
+    .phone-card{position:relative; border-radius:24px; overflow:hidden; box-shadow: 0 12px 50px rgba(0,0,0,.35)}
+    .phone-card img{width:100%; height:auto}
+    .hero .bg-bubbles{
+      position:absolute; inset: -10% -20% auto auto; pointer-events:none; z-index:-1;
+      width: 70vw; height:70vw; max-width:950px; max-height:950px;
+      background: radial-gradient(closest-side, rgba(255,255,255,.18), rgba(255,255,255,0)),
+                  radial-gradient(closest-side, rgba(0,0,0,.06), rgba(0,0,0,0));
+      filter: blur(60px); opacity:.55;
+      border-radius:50%; transform: translate(20%, -30%);
     }
 
-    /* Footer */
-    footer{padding:24px 20px; border-top:1px solid rgba(0,0,0,.06); color:var(--muted); text-align:center}
-    .links{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:10px}
-    .kbd{display:inline-block; border:1px solid #d1d5db; border-bottom-width:2px; background:#fff; padding:2px 6px; border-radius:6px; font:12px ui-monospace, Menlo, Consolas, monospace}
+    /* ---- Feature Cards ---- */
+    .features{background: #faf8ff}
+    .card-grid{grid-template-columns: repeat(12, 1fr)}
+    .card{grid-column: span 4; background: var(--white); border-radius:18px; padding:24px; box-shadow:0 10px 26px rgba(98,62,142,.14); border:1px solid rgba(98,62,142,.12)}
+    .card h3{margin:8px 0 8px; font-size:1.15rem}
+    .card p{opacity:.85}
+    .badge{display:inline-grid; place-items:center; width:44px; height:44px; border-radius:12px; background: rgba(98,62,142,.1); border:1px solid rgba(98,62,142,.2); font-weight:900; color:var(--ysmpurple)}
 
-    /* tiny motion */
-    @media (prefers-reduced-motion: no-preference){
-      .device{animation: float 6s ease-in-out infinite}
-      @keyframes float{
-        0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
-      }
+    /* ---- Gallery ---- */
+    .gallery{background: var(--white)}
+    .mosaic{grid-template-columns: repeat(12, 1fr)}
+    .mosaic figure{margin:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.2)}
+    .mosaic .span-7{grid-column: span 7}
+    .mosaic .span-5{grid-column: span 5}
+
+    /* ---- Stats / Quote ---- */
+    .quote{background: #f6f1ff; border-top: 1px solid rgba(98,62,142,.14); border-bottom: 1px solid rgba(98,62,142,.14)}
+    blockquote{margin:0; font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight:700; color:#1c1427}
+    .quote small{display:block; opacity:.8; margin-top:6px}
+
+    /* ---- Footer CTA ---- */
+    .cta {
+      background: linear-gradient(180deg, #f7f3ff, #ffffff);
+      text-align:center;
+      padding: 80px 0 90px;
+    }
+    .cta h2{font-size: clamp(1.8rem, 4vw, 2.6rem); margin:0 0 8px}
+    .cta p{margin:0 0 20px; opacity:.9}
+
+    /* ---- Site Footer ---- */
+    footer{padding:28px 0; background: var(--ysmpurple); color: var(--white)}
+    footer .row{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    footer img{width:34px}
+    .fine{opacity:.85; font-size:.92rem}
+
+    /* ---- Responsive ---- */
+    @media (max-width: 960px){
+      .hero .content{grid-template-columns: 1fr}
+      .card{grid-column: span 6}
+      .mosaic .span-7, .mosaic .span-5{grid-column: span 12}
+    }
+    @media (max-width: 640px){
+      .card{grid-column: span 12}
+      .nav .links{display:none}
     }
   </style>
 </head>
 <body>
-
-  <!-- Header / Nav -->
-  <header>
-    <div class="navbar">
-      <a class="brand" href="index.html">
-        <img class="brand-mark" src="assets/YouStillMatter.svg" alt="YouStillMatter logo" />
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="container row">
+      <a class="brand" href="#top" aria-label="YouStillMatter home">
+        <img alt="YouStillMatter" src="/assets/YSM_PurpleTxt_logo.png"/>
         <span>YouStillMatter</span>
       </a>
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="anxiety-awareness.html">Anxiety Awareness</a></li>
-          <li><a href="depression-hope.html">Depression &amp; Hope Stories</a></li>
-          <li><a href="youth-mental-health.html">Youth Toolkit</a></li>
-          <li><a href="app.html" aria-current="page">Mobile App</a></li>
-          <li><a href="instructions.html">Install Guide</a></li>
-        </ul>
+      <nav class="links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#download" class="btn" title="Download the app">Download</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="download">
-    <div>
-      <div class="badge">New • Installable web app</div>
-      <h1>Calm tools & a crisis card—always within reach</h1>
-      <p class="lede">
-        YouStillMatter brings grounding exercises, a daily check-in, a self-care menu,
-        and one-tap crisis lifelines together—private and offline-friendly.
-      </p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://app.youstillmatter.org" rel="noopener">Open the App</a>
-        <button id="installBtn" class="btn btn-outline" type="button" hidden>Install the App</button>
-        <a class="btn" href="instructions.html">How to install</a>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <span class="bg-bubbles" aria-hidden="true"></span>
+    <div class="container content">
+      <div>
+        <span class="eyebrow">Calm is a tap away</span>
+        <h1 class="title">YouStillMatter — gentle tools for tough moments</h1>
+        <p class="subtitle">Grounding prompts, breathing, a private journal, mood check‑ins, and an always‑visible crisis card. Thoughtfully simple, offline‑friendly, and designed with compassion.</p>
+        <div class="cta-row">
+          <a class="btn btn-dark" id="download" href="https://app.youstillmatter.org" target="_blank" rel="noopener">Download the App</a>
+          <a class="btn" href="#features">Explore Features</a>
+        </div>
       </div>
-      <div id="installedNote" class="install-note" hidden>Installed ✓ Open it from your home screen or apps list.</div>
-
-      <div class="band" role="note" aria-label="Why download">
-        <strong>Why download?</strong>
-        <span>Personalized calm plans that update with your mood.</span>&nbsp;•&nbsp;
-        <span>One-tap access to crisis lifelines and your Calm Toolkit.</span>&nbsp;•&nbsp;
-        <span>Works offline when you need it most.</span>
+      <div class="phone-card" aria-hidden="true">
+        <img src="/assets/Phone_Filler.png" alt="YSM lock screen preview"/>
       </div>
     </div>
-
-    <aside class="device">
-      <div class="screen">
-        <span class="pill">YouStillMatter</span>
-      </div>
-      <div class="qrWrap">
-        <img alt="QR code linking to app.youstillmatter.org"
-             src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=10&data=https%3A%2F%2Fapp.youstillmatter.org" />
-        <div class="small">
-          Scan with your phone camera to open the app<br/>
-          <button id="copyBtn" class="btn" type="button" style="margin-top:10px;padding:10px 12px">Copy link</button>
-          <button id="shareBtn" class="btn" type="button" style="margin-top:10px;padding:10px 12px">Share…</button>
-        </div>
-      </div>
-    </aside>
   </section>
 
-  <!-- FEATURES -->
-  <main class="wrap">
-    <section id="features" class="section grid2">
-      <article class="card">
-        <h2>Feel grounded anywhere</h2>
-        <div class="grid2">
-          <div>
-            <h3>Guided calm tools</h3>
-            <ul>
-              <li>Breathing, grounding, and sensory resets tailored to how you feel.</li>
-              <li>Quick-read instructions for when focus is hard.</li>
-              <li>Save favorites for offline use.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Mood-aware insights</h3>
-            <ul>
-              <li>Gentle reminders to pause, hydrate, or message a trusted contact.</li>
-              <li>Track patterns with weekly reflections.</li>
-              <li>Opt-in analytics only—your data lives on your device.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+  <!-- Feature cards -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="grid card-grid">
+        <article class="card">
+          <div class="badge">🧭</div>
+          <h3>Grounding, fast</h3>
+          <p>5‑4‑3‑2‑1 grounding, guided prompts, and mini exercises that meet you where you are — no account required.</p>
+        </article>
+        <article class="card">
+          <div class="badge">💨</div>
+          <h3>Breathe with rhythm</h3>
+          <p>Simple inhale/hold/exhale visuals help settle your nervous system in under a minute.</p>
+        </article>
+        <article class="card">
+          <div class="badge">📓</div>
+          <h3>Private journal</h3>
+          <p>Capture a thought. Title + timestamp lists keep entries tidy; tap any entry to expand when you’re ready.</p>
+        </article>
+        <article class="card">
+          <div class="badge">🙂</div>
+          <h3>Mood check‑ins</h3>
+          <p>Track how you’re doing with quick taps and see gentle trends over time in Insights.</p>
+        </article>
+        <article class="card">
+          <div class="badge">⚠️</div>
+          <h3>Crisis card</h3>
+          <p>Emergency numbers and text lines are one tap away. If you’re in immediate danger, call 911.</p>
+        </article>
+        <article class="card">
+          <div class="badge">🔒</div>
+          <h3>Private by design</h3>
+          <p>No dark patterns. Clear settings and local‑first behavior keep your focus on feeling better.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="card">
-        <h2>Immediate crisis support</h2>
-        <div class="grid2">
-          <div>
-            <h3>24/7 lifelines</h3>
-            <ul>
-              <li>Call or text <strong>988</strong> in the U.S., plus Crisis Text Line.</li>
-              <li>Curated helplines for LGBTQ+, youth, caregivers, and more.</li>
-              <li>Your own Calm Toolkit contacts—one tap to text or call.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Safety planning</h3>
-            <ul>
-              <li>Store coping steps and emergency contacts securely on your device.</li>
-              <li>Save to Journal; export/import as needed.</li>
-              <li>Offline access when service is spotty.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+  <!-- Image Mosaic / Gallery -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="grid mosaic">
+        <figure class="span-7"><img src="/assets/2Xmtvd8K7E3.png" alt="Child holding phone with YSM screen surrounded by wooden animals"/></figure>
+        <figure class="span-5"><img src="/assets/3ded1833cd2.png" alt="Phone on brushed metal charging with YSM welcome screen"/></figure>
+        <figure class="span-5"><img src="/assets/ce0bb398eedbee8c.png" alt="Man on couch using the YSM app"/></figure>
+        <figure class="span-7"><img src="/assets/K3eAeAilxla.png" alt="Paper cut flowers around phone with YSM screen"/></figure>
+      </div>
+    </div>
+  </section>
 
-      <article class="card">
-        <h2>Community encouragement</h2>
-        <div class="grid2">
-          <div>
-            <h3>Stories & support</h3>
-            <ul>
-              <li>Words of hope from the YouStillMatter community.</li>
-              <li>Bookmark what resonates and return anytime.</li>
-              <li>Share your story when you’re ready.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Self-care menu</h3>
-            <ul>
-              <li>Daily checklist that resets each day.</li>
-              <li>Add your own items; track progress.</li>
-              <li>Turn wins into Journal entries.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+  <!-- Quote / social proof -->
+  <section class="quote section">
+    <div class="container">
+      <blockquote>
+        “Calm tools you’ll actually use. Clear, gentle, and there when you need them.”
+        <small>— YouStillMatter community</small>
+      </blockquote>
+    </div>
+  </section>
 
-      <article class="card">
-        <h2>Need help right now?</h2>
-        <p class="lede">You are not alone. If you’re in immediate danger, call <strong>911</strong>.</p>
-        <ul>
-          <li><strong>United States:</strong> Call or text <strong>988</strong> • Text <strong>HOME</strong> to <a href="sms:741741?&body=HOME">741741</a></li>
-          <li><strong>Canada:</strong> Call or text <strong>988</strong> • Text <strong>CONNECT</strong> to 686868</li>
-          <li><strong>UK &amp; Ireland:</strong> Samaritans <strong>116 123</strong> • Text <strong>SHOUT</strong> to 85258</li>
-        </ul>
-        <div class="cta" style="margin-top:14px">
-          <a class="btn btn-primary" href="https://app.youstillmatter.org" rel="noopener">Open the App</a>
-          <a class="btn btn-outline" href="#download">How to install</a>
-        </div>
-      </article>
-    </section>
-  </main>
+  <!-- App in‑use screenshots strip -->
+  <section class="section" aria-label="In‑app previews">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:repeat(12,1fr)">
+        <figure style="grid-column:span 6; margin:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.18)">
+          <img src="/assets/MPCd7luufE6.png" alt="Home screen of the YSM app"/>
+        </figure>
+        <figure style="grid-column:span 6; margin:0; border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.18)">
+          <img src="/assets/TmTDhO4oIdU.png" alt="YSM home with grounding, breathe, self‑care, mood, and crisis"/>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Call to Action -->
+  <section class="cta" id="download-cta">
+    <div class="container">
+      <h2>Take a breath. We’ll meet you there.</h2>
+      <p>Download the YouStillMatter app and keep calm, grounding tools in your pocket.</p>
+      <p>
+        <a class="btn btn-dark" href="https://app.youstillmatter.org" target="_blank" rel="noopener" id="download-2">Download at app.youstillmatter.org</a>
+      </p>
+      <p style="margin-top:16px; opacity:.8; font-size:.95rem">Need assets? Try <a href="/assets/FB_Cover_logo.png">cover</a> or <a href="/assets/YSM_PurpleTxt_logo.png">logo</a>.</p>
+    </div>
+  </section>
 
   <footer>
-    <div>© <span id="year"></span> YouStillMatter — Built with compassion to remind you that you are never alone.</div>
-    <div class="links">
-      <a href="anxiety-awareness.html">Anxiety Support</a>
-      <a href="depression-hope.html">Hope Stories</a>
-      <a href="youth-mental-health.html">Youth Toolkit</a>
-      <a href="app.html" aria-current="page">Mobile App</a>
-      <a href="mailto:hello@youstillmatter.org">Contact</a>
+    <div class="container row">
+      <div style="display:flex; align-items:center; gap:10px">
+        <img src="/assets/YSM_PurpleTxt_logo.png" alt="YSM"/>
+        <span class="fine">© <span id="y">2025</span> YouStillMatter.org</span>
+      </div>
+      <nav class="fine" aria-label="Footer">
+        <a href="#features">Features</a> ·
+        <a href="#gallery">Gallery</a> ·
+        <a href="#download">Download</a>
+      </nav>
     </div>
   </footer>
 
   <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const APP_URL = 'https://app.youstillmatter.org';
-    const installBtn = document.getElementById('installBtn');
-    const installedNote = document.getElementById('installedNote');
-
-    // Show install button when PWA install is available
-    let deferredPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.hidden = false;
-    });
-    window.addEventListener('appinstalled', () => {
-      installBtn.hidden = true;
-      installedNote.hidden = false;
-    });
-    installBtn?.addEventListener('click', async () => {
-      try{
-        if (!deferredPrompt) return;
-        await deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-      }catch{}
-    });
-
-    // Share / Copy helpers
-    document.getElementById('copyBtn')?.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(APP_URL); } catch {}
-    });
-    document.getElementById('shareBtn')?.addEventListener('click', async () => {
-      if (navigator.share) {
-        try { await navigator.share({ title: 'YouStillMatter', text: 'Calming tools & crisis card', url: APP_URL }); } catch {}
-      } else {
-        try { await navigator.clipboard.writeText(APP_URL); } catch {}
-      }
-    });
+    // Update year automatically
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
