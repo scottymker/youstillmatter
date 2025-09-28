@@ -1,11 +1,24 @@
 {
   "dependencies": {
     "dexie": "^4.2.0",
+    "fast-glob": "^3.3.3",
+    "sharp": "^0.34.4",
     "workbox-window": "^7.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13"
-  }
+  },
+  "name": "youstillmatter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
